@@ -54,23 +54,19 @@ export default () =>
 
   const getPrimesAndUpdateTable = async () =>
   {
-    let primeNumbers,
-      timeStart = performance.now(),
-      givenMax = parseInt(inputValue);
+    let primeNumbers, givenMax = parseInt(inputValue);
+      
     setStatus("Running. . .");
-
     // The following allows the intermediate "Running. . ." value to
     // actually show while primes are being found
     await breakEventLoop();
 
+    const timeStart = performance.now()
     primeNumbers = getPrimeNumbers(givenMax)
     const timeStop = performance.now();
     setStatus(`Found ${givenMax} primes in ${Math.round(timeStop - timeStart).toLocaleString()}ms`);
-    console.log(primeNumbers);
-
-    // The following allows the DOM to get updated with the new status label content
-    // before populating the table, synchronously
     await breakEventLoop();
+
     setPrimes(primeNumbers);
   }
 
@@ -80,19 +76,41 @@ export default () =>
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const handleKeyDown = async e =>
+  {
+    if (e.key === "Enter")
+    {
+      await getPrimesAndUpdateTable();
+    }
+  }
+
+  const handleInputChange = e =>
+  {
+    const str = e.target.value;
+    setInputValue(str.replace(/\D/, ""))
+  }
+
   return (
     <main className="container">
-      <label className="label">Enter number of primes</label>
-      <input
-        type="number"
-        value={inputValue}
-        min="1"
-        placeholder="Enter positive integer"
-        onChange={e => setInputValue(e.target.value)}
-      />
-      <button className="button" onClick={getPrimesAndUpdateTable}>Run!</button>
-      <span className="status">{status}</span>
-      <Table primes={primes} />
+      <div className="top-row">
+        <span className="input-flex">
+          <label className="label">Enter number of primes</label>
+          <input
+            className="input"
+            value={inputValue}
+            placeholder="Enter positive integer"
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+          />
+        </span>
+        <span className="results-flex">
+          <button className="button" onClick={getPrimesAndUpdateTable}>Run!</button>
+          <span className="status">{status}</span>
+        </span>
+      </div>
+      <section className="table-wrapper">
+        <Table primes={primes} />
+      </section>
 	  </main>
   );
 }

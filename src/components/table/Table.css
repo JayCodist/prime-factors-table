@@ -1,8 +1,72 @@
 table
 {
     border-collapse: collapse;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.8);
 }
 td, th
 {
     border: 0.1rem solid lightgray;
+    padding: 0.4rem;
+    width: 7rem;
+    text-align: right;
+}
+th:first-child, td:first-child
+{
+    position: sticky;
+    width: 7rem;
+    left: -0.2rem;
+    background-color: white;
+    padding: 0 1.5rem;
+    box-shadow: 0.1rem 0 0.1rem 0.01rem rgba(0, 0, 0, 0.4);
+}
+th
+{
+    border-bottom: 0.1rem solid lightgray;
+}
+tr td:first-child
+{
+    font-weight: 700;
+    text-align: left;
+}
+tbody tr:nth-child(2n)
+{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.pagination-wrapper
+{
+    position: sticky;
+    left: 1rem;
+    margin: 1rem;
+}
+.pagination
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 0.8rem;
+}
+.pagination > *
+{
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    transition: 0.3s ease-out;
+}
+.pagination .page:hover, .pagination .page-arrow.active:hover
+{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.page.active, .page.active:hover
+{
+    background-color: var(--blue);
+    cursor: default;
+}
+.page-arrow
+{
+    cursor: not-allowed;
+}
+.page-arrow.active
+{
+    cursor: pointer;
 }

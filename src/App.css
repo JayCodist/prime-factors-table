@@ -1,4 +1,58 @@
+:root
+{
+    --blue: rgb(120, 212, 248);
+}
+
 .container
 {
     padding: 3rem;
+}
+.top-row
+{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+}
+.input-flex
+{
+    display: inline-flex;
+    flex-direction: column;
+}
+.label
+{
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.input, .input:active
+{
+    font-size: 1rem;
+    padding: 0.3rem;
+    border-radius: 0.2rem;
+    border: 0.1rem solid lightgray;
+    outline: none;
+}
+.results-flex
+{
+    display: flex;
+    align-items: center;
+}
+.button
+{
+    outline: none;
+    border: none;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    margin: 0 1rem;
+    background-color: var(--blue);
+    cursor: pointer;
+    border-radius: 0.2rem;
+}
+.table-wrapper
+{
+    overflow: auto;
+    max-width: 100%;
+    width: fit-content;
+    position: relative;
+    height: 68vh;
+    border: 0.2rem solid dimgray;
 }
