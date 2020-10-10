@@ -1,0 +1,52 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", segoe UI, sans-serif;
+}
+html
+{
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+body
+{
+    overflow-x: hidden;
+}
+
+@media(max-width: 1150px)
+{
+    html
+    {
+        font-size: 80%;
+    }
+}
+@media(max-width: 1050px)
+{
+    html
+    {
+        font-size: 70%;
+    }
+}
+@media(max-width: 950px)
+{
+    html
+    {
+        font-size: 60%;
+    }
+}
+@media(min-width: 2000px)
+{
+    html
+    {
+        font-size: 150%;
+    }
+}
+@media(min-width: 2500px)
+{
+    html
+    {
+        font-size: 200%;
+    }
+}
