@@ -63,24 +63,3 @@ test('it should be able to find first 1000 primes within 100ms', async () =>
     }
   })
 })
-
-test('it should be able to find first 10000 primes within 1 second', async () =>
-{
-  const { getByTestId, getByText, getByRole } = render(<App />);
-  const inputElement = getByRole("textbox");
-  userEvent.clear(inputElement);
-  await userEvent.type(inputElement, "10000");
-  const buttonElement = getByText(/run!/i);
-
-  const statusLabel = getByTestId("statusLabel");
-  expect(/Running. . ./i.test(statusLabel.textContent)).toBe(true);
-  userEvent.click(buttonElement);
-  await waitFor(() => expect(statusLabel.textContent).toMatch(/Found 10000 primes/i),
-  {
-    timeout: 1000,
-    onTimeout: () =>
-    {
-      throw new Error("Timeout for 10000 primes exceeded")
-    }
-  })
-})
