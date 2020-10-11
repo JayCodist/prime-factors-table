@@ -62,6 +62,7 @@ const Table = props =>
                             key={i}
                             onClick={() => handlePaginationClick(i + 1)}
                             className={'page' + ((page === i + 1) ? ' active' : '')}
+                            data-testid="pageControl"
                         >
                             {i + 1}
                         </span>))

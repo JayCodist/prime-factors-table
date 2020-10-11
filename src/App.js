@@ -61,7 +61,7 @@ export default () =>
     // actually show while primes are being found
     await breakEventLoop();
 
-    const timeStart = performance.now()
+    const timeStart = performance.now();
     primeNumbers = getPrimeNumbers(givenMax)
     const timeStop = performance.now();
     setStatus(`Found ${givenMax} primes in ${Math.round(timeStop - timeStart).toLocaleString()}ms`);
@@ -105,7 +105,7 @@ export default () =>
         </span>
         <span className="results-flex">
           <button className="button" onClick={getPrimesAndUpdateTable}>Run!</button>
-          <span className="status">{status}</span>
+          <span data-testid="statusLabel" className="status">{status}</span>
         </span>
       </div>
       <section className="table-wrapper">

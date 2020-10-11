@@ -60,6 +60,7 @@ tbody tr:nth-child(2n)
 .page.active, .page.active:hover
 {
     background-color: var(--blue);
+    color: white;
     cursor: default;
 }
 .page-arrow
