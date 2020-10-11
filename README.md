@@ -1,6 +1,6 @@
 # Prime factor generator
 
-## To run the app, run `npm install` and `npm start` in the project directory
+## To lauch the app, run `npm install` and `npm start` in the project directory. Then, input the desired number of primes and click the "Run" button
 
 ### Run `npm test` test to run test suites locally. Tests are also set-up for CI using Github Actions
 
